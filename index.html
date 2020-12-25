@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>定型文　検索</title>
+  <title>定型文 検索</title>
   <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <!-- 公開リンク  https://gennsenntmt.github.io/phrase_search -->
 </head>
 
 <body>
@@ -24,6 +26,8 @@
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
       <script>
+    //   import axios from 'axios'
+
       const app = new Vue({
           el: '#app',
           data: {
@@ -39,17 +43,16 @@
               }
           },
           methods: {
-      　　　　　// API取得
+              // API取得
               getUsers: function () {
-                  axios.get('https://jsonplaceholder.typicode.com/users')
+                  axios.get('assets/json/users.json')
+                //   axios.get('https://jsonplaceholder.typicode.com/users')
                   .then(res => {
                     this.users = res.data
                   })
                   .catch(err => {
                   console.log(err.statusText)
                   });
-                  // axios.get('./data.json')
-                  // axios.get("/Users/takahashihideaki/Desktop/teikeibun_osagasi/users.json").then(response => (this.users = response))
               },
               // keywordに一致するuserを配列に格納し、それを返します
               filterUsers: function () {
